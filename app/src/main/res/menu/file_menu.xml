@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+      
+    <item
+        android:id="@+id/menu_new"
+        android:title="Новий" />
+        
+    <item
+        android:id="@+id/menu_open"
+        android:title="Відкрити" />
+        
+    <item
+        android:id="@+id/menu_search"
+        android:title="Пошук"
+        app:showAsAction="always" />
+        
+    <item
+        android:id="@+id/menu_save"
+        android:title="Зберегти" />
+        
+    <item
+        android:id="@+id/menu_save_as"
+        android:title="Зберегти як" />
+        
+    <item
+        android:id="@+id/menu_close"
+        android:title="Закрити" />
+        
+    <item
+        android:id="@+id/menu_exit"
+        android:title="Вийти" />
+        
+    <item
+        android:id="@+id/menu_about"
+        android:title="Про програму" />
+</menu>

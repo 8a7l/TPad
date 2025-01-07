@@ -1,0 +1,23 @@
+<resources>
+    <!-- Базовий стиль для вашого додатку -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Чорний фон для всього додатку -->
+        <item name="android:windowBackground">@android:color/black</item>
+        
+        <!-- Білий колір тексту для всього додатку -->
+        <item name="android:textColor">@android:color/white</item>
+        
+        <!-- Змінюємо колір тексту у всіх елементах додатку -->
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        
+        <!-- Змінюємо колір на основний для акцентів (кнопок, вибраних елементів) -->
+        <item name="colorAccent">@android:color/white</item>
+    </style>
+
+    <!-- Стиль для Popup меню -->
+    <style name="PopupMenuStyle">
+        <item name="android:popupBackground">@drawable/popup_menu_background</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+</resources>
