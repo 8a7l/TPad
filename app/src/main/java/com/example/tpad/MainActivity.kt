@@ -142,66 +142,35 @@ class MainActivity : AppCompatActivity() {
         } ?: Toast.makeText(this, "Спочатку відкрийте або збережіть файл", Toast.LENGTH_SHORT).show()
     }
 
-    private fun saveFileAs() {
-        // Створюємо інтерфейс для вибору формату файлу
-        val formats = arrayOf(
-            "text/plain" to "txt", // Звичайний текст
-            "text/html" to "html", // HTML
-            "application/x-php" to "php", // PHP
-            "text/css" to "css", // CSS
-            "application/javascript" to "js", // JavaScript
-            "application/xml" to "xml", // XML
-            "text/csv" to "csv", // CSV
-            "application/json" to "json" // JSON
-        )
+	private fun saveFileAs() {
+		val input = EditText(this).apply {
+			hint = "Введіть ім'я файлу (з розширенням)"
+		}
 
-        // Створюємо діалог для вибору формату файлу
-        val formatDialog = AlertDialog.Builder(this)
-            .setTitle("Виберіть формат файлу")
-            .setItems(formats.map { it.second }.toTypedArray()) { _, which ->
-                val selectedFormat = formats[which]
-                val mimeType = selectedFormat.first
-                val extension = selectedFormat.second
+		AlertDialog.Builder(this)
+			.setTitle("Ім'я файлу та розширення")
+			.setView(input)
+			.setPositiveButton("Зберегти") { _, _ ->
+				val fileNameWithExtension = input.text.toString().trim()
 
-                // Створюємо діалог для введення імені файлу
-                val input = EditText(this).apply {
-                    hint = "Введіть ім'я файлу"
-                }
+				if (fileNameWithExtension.isEmpty()) {
+					Toast.makeText(this, "Ім'я файлу не може бути порожнім", Toast.LENGTH_SHORT).show()
+					return@setPositiveButton
+				}
 
-                AlertDialog.Builder(this)
-                    .setTitle("Ім'я файлу")
-                    .setView(input)
-                    .setPositiveButton("Зберегти") { _, _ ->
-                        val fileName = input.text.toString().trim()
+				// Створюємо інтенцію для збереження файлу без додавання .txt
+				val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+					type = "application/octet-stream" // Встановлюємо MIME тип для бінарного файлу
+					putExtra(Intent.EXTRA_TITLE, fileNameWithExtension) // Встановлюємо ім'я файлу з розширенням, яке ввів користувач
+				}
 
-                        // Перевірка, чи не порожнє ім'я файлу
-                        if (fileName.isEmpty()) {
-                            Toast.makeText(this, "Ім'я файлу не може бути порожнім", Toast.LENGTH_SHORT).show()
-                            return@setPositiveButton
-                        }
-
-                        // Якщо користувач не вибрав розширення, зберігаємо без нього
-                        val finalFileName = if (fileName.contains(".")) fileName else "$fileName.$extension"
-
-                        // Створюємо інтенцію для збереження файлу з вибраним форматом
-                        val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
-                            type = mimeType
-                            putExtra(Intent.EXTRA_TITLE, finalFileName) // Встановлюємо ім'я файлу з розширенням або без нього
-                        }
-
-                        // Запускаємо лончер для збереження файлу
-                        saveFileAsLauncher.launch(intent)
-                    }
-                    .setNegativeButton("Скасувати", null)
-                    .create()
-                    .show()
-            }
-            .setNegativeButton("Скасувати", null)
-            .create()
-
-        formatDialog.show()
-    }
-
+				saveFileAsLauncher.launch(intent)
+			}
+			.setNegativeButton("Скасувати", null)
+			.create()
+			.show()
+	}
+															
     private fun openFile() {
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
             type = "*/*" // Відкриваємо всі текстові файли
