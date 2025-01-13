@@ -239,12 +239,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun showAboutDialog() {
         val htmlText = """
-            <h2>Про програму</h2>
-            <p>Це <b>простий текстовий редактор</b>, створений для демонстрації можливостей Android.</p>
-            <p>Детальніше на нашому сайті:<br>
-            <a href='https://example.com'>example.com</a></p>
-            <p>Напишіть нам:<br>
-            <a href='mailto:support@example.com'>support@example.com</a></p>
+			<h2>Автор:</h2>
+            <p>Василь Онуфрійчук</p>
+            <a href='https://github.com/8a7l/TPad'>github TPad</a></p>
+			<h2>Про програму</h2>
+            <p>TPad - <b>простий текстовий редактор</b>.
+			Ця програма є безкоштовною, ви можете поширювати її та/або змінювати гідно з умовами GNU General Public License версії 3, опублікованої Free Software Foundation; або на ваш вибір будь-якої пізнішої версії.
+			</b>
+			Ця програма розповсюджується в надії, що вона буде корисною, але БЕЗ ЖОДНИХ ГАРАНТІЙ; навіть без неявної гарантії ПРИДАТНОСТІ ДЛЯ ПРОДАЖУ чи ВІДПОВІДНОСТІ ДЛЯ КОНКРЕТНОЇ МЕТИ.</p>
+            <p>Ознайомитись з ліцензією можна за посиланям:<br>
+            <a href='https://www.gnu.org/licenses/lgpl-3.0.html'>GNU General Public License версії 3</a></p>
+			<br>
+			
         """.trimIndent()
 
         val dialog = AlertDialog.Builder(this)
