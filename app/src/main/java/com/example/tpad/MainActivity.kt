@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
             val item = menu.getItem(i)
             // Використовуємо метод для зміни кольору (можна змінити за допомогою стилю або інших методів)
             item.icon?.setTint(Color.BLACK)  // Налаштування кольору іконок (якщо є)
-            item.setTitle(Html.fromHtml("<font color='#000000'>" + item.title + "</font>", Html.FROM_HTML_MODE_LEGACY)) // Налаштування кольору тексту
+            item.setTitle(Html.fromHtml("<font color='#808080'>" + item.title + "</font>", Html.FROM_HTML_MODE_LEGACY)) // Налаштування кольору тексту
         }
 
         popupMenu.setOnMenuItemClickListener { item ->
