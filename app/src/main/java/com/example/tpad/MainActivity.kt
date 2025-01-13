@@ -217,7 +217,7 @@ class MainActivity : AppCompatActivity() {
 			</b>
 			<p>Ця програма розповсюджується в надії, що вона буде корисною, але БЕЗ ЖОДНИХ ГАРАНТІЙ; навіть без неявної гарантії ПРИДАТНОСТІ ДЛЯ ПРОДАЖУ чи ВІДПОВІДНОСТІ ДЛЯ КОНКРЕТНОЇ МЕТИ.</p>
             <p>Ознайомитись з ліцензією можна за посиланям:<br>
-            <a href='https://www.gnu.org/licenses/lgpl-3.0.html'>GNU General Public License версії 3</a></p>
+            <a href='https://www.gnu.org/licenses/lgpl-3.0.html'>GNU General Public License версія 3</a></p>
 			<br>
 			
         """.trimIndent()
